@@ -1,38 +1,3 @@
-node_modules# Dependências (Sempre ignore as node_modules)
 node_modules/
 dist/
-dist-ssr/
-*.local
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# Editor (VS Code, IntelliJ)
-.vscode/
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# Variáveis de Ambiente (CRÍTICO: Nunca suba seus segredos/senhas)
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Banco de Dados e Prisma (Importante para o OliveiraLog)
-/prisma/dev.db
-/prisma/dev.db-journal
-
-# Docker
-.docker/
-
-# SO (Arquivos temporários do Windows/Mac)
-.DS_Store
-Thumbs.db
