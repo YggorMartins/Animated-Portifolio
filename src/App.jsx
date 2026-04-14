@@ -1,4 +1,10 @@
 import { motion } from "framer-motion";
+import jsLogo from "./assets/javascript-svgrepo-com.svg";
+import tsLogo from "./assets/typescript-svgrepo-com.svg";
+import nodeLogo from "./assets/nodejs-icon-svgrepo-com.svg";
+import reactLogo from "./assets/react-svgrepo-com.svg";
+import tailwindLogo from "./assets/tailwindcss-icon-svgrepo-com.svg";
+import javaLogo from "./assets/java-4-logo-svgrepo-com.svg";
 
 const features = [
   {
@@ -51,6 +57,15 @@ const motionProps = {
   viewport: { once: true, amount: 0.2 },
   transition: { duration: 0.92, ease: [0.16, 1, 0.3, 1] },
 };
+
+const techIcons = [
+  { name: "JavaScript", logo: jsLogo },
+  { name: "TypeScript", logo: tsLogo },
+  { name: "Node.js", logo: nodeLogo },
+  { name: "React", logo: reactLogo },
+  { name: "Tailwind", logo: tailwindLogo },
+  { name: "Java", logo: javaLogo },
+];
 
 function App() {
   return (
@@ -120,17 +135,38 @@ function App() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between rounded-3xl bg-white/5 px-4 py-3 text-sm text-slate-300">
                     <span className="live-pulse rounded-full bg-cyan-400/15 px-3 py-1 text-cyan-100 shadow-[0_0_18px_rgba(56,189,248,0.18)]">
-                      Live preview
+                      Tech Stack
                     </span>
-                    <span>Dev mode</span>
                   </div>
-                  <div className="glass-panel rounded-[28px] p-6 ring-1 ring-white/10">
-                    <div className="relative overflow-hidden rounded-[24px] bg-slate-900/90 p-8">
+                  <div className="glass-panel rounded-[28px] p-6 ring-1 ring-white/10 overflow-hidden">
+                    <div className="relative overflow-hidden rounded-[24px] bg-slate-900/90 p-5">
                       <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_40%,_rgba(108,247,255,0.14),_transparent_28%),radial-gradient(circle_at_30%_70%,_rgba(138,255,253,0.1),_transparent_24%)]" />
-                      <div className="relative flex h-44 items-center justify-center">
-                        <div className="pointer-events-none rounded-full bg-white/10 p-4 text-5xl text-white/90 shadow-[0_0_60px_rgba(108,249,255,0.25)]">
-                          ▶
-                        </div>
+                      <div className="relative grid min-h-[240px] grid-cols-3 gap-6 auto-rows-min">
+                        {techIcons.map((tech, index) => (
+                          <motion.div
+                            key={tech.name}
+                            className="flex flex-col items-center justify-center gap-2 rounded-3xl bg-slate-950/90 p-3 text-center ring-1 ring-white/10"
+                            animate={{ y: [0, -6, 0], opacity: 1 }}
+                            transition={{
+                              duration: 2.8,
+                              ease: [0.16, 1, 0.3, 1],
+                              repeat: Infinity,
+                              repeatType: "loop",
+                              delay: index * 0.15,
+                            }}
+                          >
+                            <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-slate-950/80 p-2">
+                              <img
+                                src={tech.logo}
+                                alt={`${tech.name} logo`}
+                                className="h-full w-full object-contain"
+                              />
+                            </div>
+                            <span className="text-[10px] uppercase tracking-[0.24em] text-slate-400">
+                              {tech.name}
+                            </span>
+                          </motion.div>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -256,26 +292,59 @@ function App() {
                     <span className="h-3 w-10 rounded-full bg-white/10" />
                     <span className="h-3 w-20 rounded-full bg-cyan-400/20" />
                   </div>
-                  <div className="space-y-3 rounded-[28px] bg-slate-900/90 p-4">
-                    {Array.from({ length: 6 }).map((_, row) => (
-                      <div key={row} className="flex items-center gap-3">
-                        <div className="h-3 w-16 rounded-full bg-slate-800/80" />
-                        <div className="h-3 flex-1 rounded-full bg-white/10" />
+                  <div className="space-y-4 rounded-[28px] bg-slate-900/90 p-4">
+                    {[
+                      {
+                        label: "Active builds",
+                        value: "12",
+                        note: "Last 24h",
+                      },
+                      {
+                        label: "Open PRs",
+                        value: "8",
+                        note: "Needs review",
+                      },
+                      {
+                        label: "Pending deploys",
+                        value: "3",
+                        note: "Staged",
+                      },
+                      {
+                        label: "Alerts",
+                        value: "2",
+                        note: "Low priority",
+                      },
+                    ].map((item) => (
+                      <div
+                        key={item.label}
+                        className="flex items-center justify-between rounded-3xl bg-slate-950/90 px-4 py-3 text-sm text-slate-300 ring-1 ring-white/10"
+                      >
+                        <div>
+                          <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
+                            {item.label}
+                          </p>
+                          <p className="mt-2 text-xl font-semibold text-white">
+                            {item.value}
+                          </p>
+                        </div>
+                        <span className="rounded-full bg-white/5 px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-slate-400">
+                          {item.note}
+                        </span>
                       </div>
                     ))}
                   </div>
                 </div>
                 <div className="glass-panel rounded-[32px] p-6 ring-1 ring-white/10">
                   <div className="mb-4 flex items-center justify-between text-sm text-slate-400">
-                    <span>Live dashboard</span>
+                    <span>Projects dashboard</span>
                     <span className="rounded-full bg-cyan-400/10 px-3 py-1 text-cyan-100">
                       Connected
                     </span>
                   </div>
                   <div className="grid gap-3 sm:grid-cols-2">
                     {[
-                      { label: "Users online", value: "1.2k" },
-                      { label: "Requests/sec", value: "312" },
+                      { label: "Repositories", value: "26" }, //
+                      { label: "Ongoing Projects", value: "5" },
                     ].map((item) => (
                       <div
                         key={item.label}
@@ -296,7 +365,7 @@ function App() {
               <div className="space-y-6">
                 <div className="rounded-[32px] bg-slate-900/90 p-6 ring-1 ring-white/10">
                   <div className="mb-4 flex items-center justify-between text-sm text-slate-400">
-                    <span>System Health</span>
+                    <span>Next Release</span>
                     <strong className="text-white">92%</strong>
                   </div>
                   <div className="h-4 overflow-hidden rounded-full bg-white/5">
@@ -334,7 +403,7 @@ function App() {
                 </div>
                 <div className="rounded-[32px] bg-slate-900/90 p-6 ring-1 ring-white/10">
                   <div className="mb-4 flex items-center justify-between text-sm text-slate-400">
-                    <span>Build Progress</span>
+                    <span>Progress</span>
                     <strong className="text-white">64%</strong>
                   </div>
                   <div className="h-4 overflow-hidden rounded-full bg-white/5">
@@ -353,7 +422,7 @@ function App() {
                 </div>
               </div>
             </div>
-            <div className="grid gap-4 sm:grid-cols-3">
+            <div className="grid gap-4 sm:grid-cols-3 mt-6">
               {[
                 { label: "Projects", value: "18" },
                 { label: "Live apps", value: "6" },
