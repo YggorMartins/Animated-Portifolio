@@ -284,10 +284,10 @@ function App() {
             transition={{ ...motionProps.transition, delay: 0.12 }}
             className="mt-10 glass-panel rounded-[36px] p-10 shadow-[0_0_120px_rgba(56,189,248,0.08)]"
           >
-            <div className="grid gap-6 xl:grid-cols-[1.3fr_0.9fr]">
+            <div className="grid gap-6 xl:grid-cols-2">
               <div className="space-y-6">
                 <div className="glass-panel rounded-[32px] p-6 ring-1 ring-white/10">
-                  <div className="mb-5 flex items-center gap-3 text-sm text-slate-400">
+                  <div className="mb-12 flex items-center gap-3 text-sm text-slate-400">
                     <span className="h-3 w-16 rounded-full bg-white/10" />
                     <span className="h-3 w-10 rounded-full bg-white/10" />
                     <span className="h-3 w-20 rounded-full bg-cyan-400/20" />
@@ -362,62 +362,74 @@ function App() {
                 </div>
               </div>
 
-              <div className="space-y-6">
-                <div className="rounded-[32px] bg-slate-900/90 p-6 ring-1 ring-white/10">
-                  <div className="mb-4 flex items-center justify-between text-sm text-slate-400">
-                    <span>Next Release</span>
-                    <strong className="text-white">92%</strong>
-                  </div>
-                  <div className="h-4 overflow-hidden rounded-full bg-white/5">
-                    <motion.div
-                      className="h-full rounded-full bg-gradient-to-r from-cyan-400 to-sky-500"
-                      initial={{ width: "40%" }}
-                      animate={{ width: ["40%", "90%", "40%"] }}
-                      transition={{
-                        duration: 12,
-                        ease: [0.16, 1, 0.3, 1],
-                        repeat: Infinity,
-                        repeatType: "loop",
-                      }}
-                    />
-                  </div>
+              <div className="glass-panel rounded-[32px] p-6 ring-1 ring-white/10">
+                <div class="mb-9 flex items-center p-3 gap-3 text-sm text-slate-400">
+                  <span class="h-3 w-16 rounded-full bg-white/10"></span>
+                  <span class="h-3 w-10 rounded-full bg-white/10"></span>
+                  <span class="h-3 w-20 rounded-full bg-cyan-400/20"></span>
                 </div>
-                <div className="rounded-[32px] bg-slate-900/90 p-6 ring-1 ring-white/10">
-                  <div className="mb-4 flex items-center justify-between text-sm text-slate-400">
-                    <span>API Latency</span>
-                    <strong className="text-white">78ms</strong>
+                <div className="space-y-20">
+                  <div className="rounded-[32px] bg-slate-900/90 p-6 ring-1 ring-white/10">
+                    <div className="mb-5 flex items-center justify-between text-sm text-slate-400">
+                      <span>Next Release</span>
+                      <strong className="text-white">92%</strong>
+                    </div>
+                    <div className="h-4 overflow-hidden rounded-full bg-white/5">
+                      <motion.div
+                        className="h-full rounded-full bg-gradient-to-r from-cyan-400 to-sky-500"
+                        initial={{ width: "40%" }}
+                        animate={{ width: ["40%", "90%", "40%"] }}
+                        transition={{
+                          duration: 12,
+                          ease: [0.16, 1, 0.3, 1],
+                          repeat: Infinity,
+                          repeatType: "loop",
+                        }}
+                      />
+                    </div>
                   </div>
-                  <div className="h-4 overflow-hidden rounded-full bg-white/5">
-                    <motion.div
-                      className="h-full rounded-full bg-gradient-to-r from-violet-400 to-fuchsia-400"
-                      initial={{ width: "40%" }}
-                      animate={{ width: ["40%", "78%", "40%"] }}
-                      transition={{
-                        duration: 14,
-                        ease: [0.16, 1, 0.3, 1],
-                        repeat: Infinity,
-                        repeatType: "loop",
-                      }}
-                    />
+                  <div className="rounded-[32px] bg-slate-900/90 p-6 ring-1 ring-white/10">
+                    <div className="mb-3 flex items-center justify-between text-sm text-slate-400">
+                      <span>API Latency</span>
+                      <strong className="text-white">78ms</strong>
+                    </div>
+                    <div className="h-4 overflow-hidden rounded-full bg-white/5">
+                      <motion.div
+                        className="h-full rounded-full bg-gradient-to-r from-violet-400 to-fuchsia-400"
+                        initial={{ width: "40%" }}
+                        animate={{ width: ["40%", "78%", "40%"] }}
+                        transition={{
+                          duration: 14,
+                          ease: [0.16, 1, 0.3, 1],
+                          repeat: Infinity,
+                          repeatType: "loop",
+                        }}
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="rounded-[32px] bg-slate-900/90 p-6 ring-1 ring-white/10">
-                  <div className="mb-4 flex items-center justify-between text-sm text-slate-400">
-                    <span>Progress</span>
-                    <strong className="text-white">64%</strong>
+                  <div className="rounded-[32px] bg-slate-900/90 p-6 ring-1 ring-white/10">
+                    <div className="mb-4 flex items-center justify-between text-sm text-slate-400">
+                      <span>Progress</span>
+                      <strong className="text-white">64%</strong>
+                    </div>
+                    <div className="h-4 overflow-hidden rounded-full bg-white/5">
+                      <motion.div
+                        className="h-full rounded-full bg-gradient-to-r from-rose-400 to-orange-300"
+                        initial={{ width: "40%" }}
+                        animate={{ width: ["40%", "65%", "40%"] }}
+                        transition={{
+                          duration: 10,
+                          ease: [0.16, 1, 0.3, 1],
+                          repeat: Infinity,
+                          repeatType: "loop",
+                        }}
+                      />
+                    </div>
                   </div>
-                  <div className="h-4 overflow-hidden rounded-full bg-white/5">
-                    <motion.div
-                      className="h-full rounded-full bg-gradient-to-r from-rose-400 to-orange-300"
-                      initial={{ width: "40%" }}
-                      animate={{ width: ["40%", "65%", "40%"] }}
-                      transition={{
-                        duration: 10,
-                        ease: [0.16, 1, 0.3, 1],
-                        repeat: Infinity,
-                        repeatType: "loop",
-                      }}
-                    />
+                  <div className="flex items-center p-1 gap-3 text-sm text-slate-400">
+                    <span className="h-3 w-16 rounded-full bg-white/10"></span>
+                    <span className="h-3 w-10 rounded-full bg-white/10"></span>
+                    <span className="h-3 w-20 rounded-full bg-cyan-400/20"></span>
                   </div>
                 </div>
               </div>
